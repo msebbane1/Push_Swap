@@ -6,17 +6,23 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 16:03:47 by marvin            #+#    #+#             */
-/*   Updated: 2021/10/27 17:56:04 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/03/07 13:57:52 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-/** 
- * Vérifie si l'on a un chiffre (0 à 9).
- **/
-int	ft_isdigit(int c)
+#include "../includes/push_swap.h"
+
+int	ft_isdigit(char *str)
 {
-	if (c >= '0' && c <= '9')
+	int	i;
+
+	i = 0;
+	while (str[i] == '-')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		i++;
 		return (1);
+	}
 	return (0);
 }

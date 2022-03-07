@@ -6,11 +6,11 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 13:45:36 by msebbane          #+#    #+#             */
-/*   Updated: 2021/10/28 11:31:53 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/03/07 12:55:45 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/push_swap.h"
 
 static int	ft_sep(char c, char sep)
 {

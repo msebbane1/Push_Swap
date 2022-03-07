@@ -6,7 +6,7 @@
 #    By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/04 10:48:12 by msebbane          #+#    #+#              #
-#    Updated: 2022/03/04 16:03:11 by msebbane         ###   ########.fr        #
+#    Updated: 2022/03/07 13:15:51 by msebbane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ OBJECTS	= ./bin
  
 CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
 
-SRCS = srcs/main.c srcs/list.c libft/ft_putstr_fd.c
+SRCS = srcs/main.c srcs/list.c libft/ft_putstr_fd.c libft/ft_atoi.c \
+libft/ft_isdigit.c
 
 RM = rm -f
 
