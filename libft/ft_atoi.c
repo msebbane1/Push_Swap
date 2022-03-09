@@ -6,7 +6,7 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 14:14:02 by marvin            #+#    #+#             */
-/*   Updated: 2022/03/07 12:55:58 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/03/09 11:58:52 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 int	ft_atoi(const char *nptr)
 {
 	int				i;
-	unsigned long	result;
-	int				sign;
+	long			result;
+	long			sign;
 
 	i = 0;
 	result = 0;
@@ -37,5 +37,8 @@ int	ft_atoi(const char *nptr)
 		result = result * 10 + (nptr[i] - '0');
 		i++;
 	}
-	return (sign * result);
+	result = sign * result;
+	if (result < -2147483648 || result > 2147483647)
+		return (0);
+	return (result);
 }

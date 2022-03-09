@@ -6,7 +6,7 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 15:46:00 by msebbane          #+#    #+#             */
-/*   Updated: 2022/03/07 10:59:55 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/03/08 10:06:08 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ t_stack	*clear_stack(t_stack *list)
 	return (clear_stack(element));
 }
 
+/* Afficher ma stack */
 void	print_stack(t_stack *list)
 {
 	if (is_empty_stack(list))
