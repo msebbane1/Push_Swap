@@ -6,7 +6,7 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 12:48:26 by msebbane          #+#    #+#             */
-/*   Updated: 2022/03/09 12:11:02 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/03/09 14:49:57 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,11 @@
 - [Arguments] que des chiffres/nb ou chiffres/nb negatifs √
 - [Arguments] fonctionne avec "" √
 - [Arguments] Retourne une erreur si ce ne sont pas des chiffres √
-- [Arguments] Si ils sont deja trie de rien afficher
 - [Arguments] Pas de caracteres doublons √
-- [Arguments] Compris dans les int
+- [Arguments] Compris dans les int √
 - Stocker lstnew(argv [1 NULL]) dans ma stack a √
+- [Arguments] Si ils sont deja trie de rien afficher
 */
-/*void	check_int(t_stack *stack_a)
-{
-	if (ft_atoi(stock_a[y] < -2147483648 || ft_atoi(stock_a[y] > 2147483647)
-	{
-		ft_putstr_fd("Error\n", 2);
-		return (0);
-	}
-}*/
 int	check_double(t_stack *stack_a)
 {
 	t_stack	*tmp;
@@ -49,7 +41,7 @@ int	check_double(t_stack *stack_a)
 	return (0);
 }
 
-int	check_argv(t_stack **stack_a, char **argv)
+int	check_argv(t_stack **stack_a, t_stack **stack_b, char **argv)
 {
 	int		i;
 	int		y;
@@ -62,7 +54,8 @@ int	check_argv(t_stack **stack_a, char **argv)
 		stock_a = ft_split(argv[i], ' ');
 		while (stock_a[y])
 		{
-			ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(stock_a[y])));
+			ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(stock_a[y]))); // arguments stock dans la stack a
+			ft_lstadd_back(stack_b, ft_lstnew(6)); // arguments stock dans la stack b
 			if (!(ft_isdigit(stock_a[y])) || !(ft_isdigit(argv[i])))
 				return (1);
 			if (ft_atoi(argv[i]) == 0 || ft_atoi(stock_a[y]) == 0)
@@ -78,12 +71,20 @@ int	check_argv(t_stack **stack_a, char **argv)
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
+	t_stack	*stack_b;
 
 	(void) argc;
 	stack_a = new_stack();
-	if (check_argv(&stack_a, argv) || check_double(stack_a))
+	stack_b = new_stack();
+	if (check_argv(&stack_a, &stack_b, argv) || check_double(stack_a))
 	{
 		ft_putstr_fd("Error\n", 2);
 		return (1);
 	}
+	//sa(stack_a);
+	//pa(stack_a, stack_b);
+	rra(stack_a);
+	//print_stack(stack_a);
+	//printf("--------\n");
+	//print_stack(stack_b);
 }

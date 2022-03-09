@@ -6,7 +6,7 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 14:02:19 by msebbane          #+#    #+#             */
-/*   Updated: 2022/03/07 10:50:36 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/03/09 14:31:43 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,8 @@ t_stack	*pop_stack(t_stack *list);
 t_stack	*clear_stack(t_stack *list);
 int		top_stack(t_stack *list);
 void	print_stack(t_stack *list);
+void	sa(t_stack *stack_a);
+void	pa(t_stack *stack_a, t_stack *stack_b);
+void	rra(t_stack *stack_a);
+void	ft_lstadd_front(t_stack **alst, t_stack *new);
 #endif
