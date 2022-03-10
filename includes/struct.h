@@ -6,7 +6,7 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 14:02:19 by msebbane          #+#    #+#             */
-/*   Updated: 2022/03/09 14:31:43 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/03/10 11:37:28 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,15 @@ t_stack	*pop_stack(t_stack *list);
 t_stack	*clear_stack(t_stack *list);
 int		top_stack(t_stack *list);
 void	print_stack(t_stack *list);
-void	sa(t_stack *stack_a);
-void	pa(t_stack *stack_a, t_stack *stack_b);
-void	rra(t_stack *stack_a);
+void	sa(t_stack **stack_a, int print);
+void	pa(t_stack **stack_a, t_stack **stack_b, int print);
+void	rra(t_stack **stack_a, int print);
 void	ft_lstadd_front(t_stack **alst, t_stack *new);
+void	ss(t_stack **stack_a, t_stack **stack_b);
+void	rr(t_stack **stack_a, t_stack **stack_b);
+void	rrr(t_stack **stack_a, t_stack **stack_b);
+void	pb(t_stack **stack_a, t_stack **stack_b, int print);
+void	ra(t_stack **stack_a, int print);
+void	sb(t_stack **stack_b, int print);
+
 #endif
