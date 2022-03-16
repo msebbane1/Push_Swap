@@ -6,7 +6,7 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 12:57:56 by msebbane          #+#    #+#             */
-/*   Updated: 2022/03/10 11:33:45 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/03/16 13:59:11 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ void	ra(t_stack **stack_a, int print)
 {
 	t_stack	*tmp;
 
+	if (*stack_a == NULL)
+		return ;
 	tmp = *stack_a;
 	*stack_a = (*stack_a)->next;
 	tmp->next = NULL;
@@ -66,8 +68,9 @@ void	rra(t_stack **stack_a, int print)
 	t_stack	*tmp;
 	t_stack	*last;
 
+	if (*stack_a == NULL || (*stack_a)->next == NULL)
+		return ;
 	tmp = *stack_a;
-	print_stack(tmp);
 	while (tmp->next->next != NULL)
 		tmp = tmp->next; // avant dernier;
 	last = ft_lstlast(*stack_a); // stock 6 dernier element

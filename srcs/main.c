@@ -6,7 +6,7 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 12:48:26 by msebbane          #+#    #+#             */
-/*   Updated: 2022/03/10 11:55:43 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/03/16 15:24:51 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,21 @@ int	check_argv(t_stack **stack_a, char **argv)
 	return (0);
 }
 
+int	check_sort(t_stack **stack_a)
+{
+	t_stack	*tmp;
+
+	tmp = *stack_a;
+	while (tmp && tmp->next)
+	{
+		if (tmp->valeur < tmp->next->valeur)
+			tmp = tmp->next;
+		else if (tmp->valeur > tmp->next->valeur)
+			return (0);
+	}
+	return (1);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
@@ -80,22 +95,8 @@ int	main(int argc, char **argv)
 		ft_putstr_fd("Error\n", 2);
 		return (1);
 	}
-	ft_lstadd_back(&stack_b, ft_lstnew(7)); // arguments stock dans la stack b
-	pb(&stack_a, &stack_b, 2);
-	pb(&stack_a, &stack_b, 2);
-	sb(&stack_b, 2);
-	sa(&stack_a, 2);
-	print_stack(stack_a);
-	//pb(stack_a, stack_b, 2);
-	//print_stack(stack_b);
-	//printf("----------------\n");
-	//print_stack(stack_b);
-	//pa(stack_a, stack_b, 2);
-	//print_stack(stack_b);
-	
-	//rra(stack_a, 2);
-	//rra(stack_a);
-	//print_stack(stack_a);
-	//printf("--------\n");
-	//print_stack(stack_b);
+	if (len_stack(&stack_a) == 1 || check_sort(&stack_a) == 1)
+		return (0);
+	is_sorted_2(&stack_a);
+	//ft_lstadd_back(&stack_b, ft_lstnew(7)); // arguments stock dans la stack b
 }

@@ -6,7 +6,7 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 14:02:19 by msebbane          #+#    #+#             */
-/*   Updated: 2022/03/10 11:37:28 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/03/16 13:59:00 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,9 @@ void	rrr(t_stack **stack_a, t_stack **stack_b);
 void	pb(t_stack **stack_a, t_stack **stack_b, int print);
 void	ra(t_stack **stack_a, int print);
 void	sb(t_stack **stack_b, int print);
+void	rb(t_stack **stack_b, int print);
+void	rrb(t_stack **stack_b, int print);
+int		len_stack(t_stack **stack_a);
+void	is_sorted_2(t_stack **stack_a);
 
 #endif

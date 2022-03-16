@@ -6,7 +6,7 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 13:48:37 by msebbane          #+#    #+#             */
-/*   Updated: 2022/03/10 11:34:42 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/03/14 14:08:49 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void	rb(t_stack **stack_b, int print)
 {
 	t_stack	*tmp;
 
+	if (*stack_b == NULL)
+		return ;
 	tmp = *stack_b;
 	*stack_b = (*stack_b)->next;
 	tmp->next = NULL;
@@ -65,6 +67,8 @@ void	rrb(t_stack **stack_b, int print)
 	t_stack	*tmp;
 	t_stack	*last;
 
+	if (*stack_b == NULL || (*stack_b)->next == NULL)
+		return ;
 	tmp = *stack_b;
 	while (tmp->next->next != NULL)
 		tmp = tmp->next; // avant dernier element;
