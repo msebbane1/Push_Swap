@@ -6,7 +6,7 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 14:02:19 by msebbane          #+#    #+#             */
-/*   Updated: 2022/03/16 13:59:00 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/03/17 16:15:06 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 typedef struct s_stack
 {
 	int				valeur;
+	int				index;
 	struct s_stack	*next;
 }				t_stack;
 
@@ -42,6 +43,9 @@ void	sb(t_stack **stack_b, int print);
 void	rb(t_stack **stack_b, int print);
 void	rrb(t_stack **stack_b, int print);
 int		len_stack(t_stack **stack_a);
-void	is_sorted_2(t_stack **stack_a);
+void	sorted_for_2(t_stack **stack_a);
+void	sorted_for_3(t_stack **stack_a);
+void	sort_small_stack(t_stack **stack_a, t_stack **stack_b);
+void	sort_big_stack(t_stack **stack_a);
 
 #endif

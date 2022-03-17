@@ -6,7 +6,7 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 12:57:56 by msebbane          #+#    #+#             */
-/*   Updated: 2022/03/16 13:59:11 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/03/17 17:02:08 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	sa(t_stack **stack_a, int print)
 	tmp->next = (*stack_a)->next;
 	(*stack_a)->next = tmp;
 	if (print)
-		ft_putstr_fd("sa\n", 2);
+		ft_putstr_fd("sa\n", 1);
 }
 /* pa (appuyez sur a) : prenez le premier élément en 
 haut de b et placez-le en haut de a.
@@ -42,7 +42,7 @@ void	pa(t_stack **stack_a, t_stack **stack_b, int print)
 	tmp->next = NULL;
 	ft_lstadd_front(stack_a, tmp);
 	if (print)
-		ft_putstr_fd("pa\n", 2);
+		ft_putstr_fd("pa\n", 1);
 }
 
 /* ra (faire pivoter a) : décaler vers le haut tous les 
@@ -58,7 +58,7 @@ void	ra(t_stack **stack_a, int print)
 	tmp->next = NULL;
 	ft_lstadd_back(stack_a, tmp);
 	if (print)
-		ft_putstr_fd("ra\n", 2);
+		ft_putstr_fd("ra\n", 1);
 }
 
 /* rra (rotation inverse a) : Décaler tous les éléments 
@@ -77,5 +77,5 @@ void	rra(t_stack **stack_a, int print)
 	tmp->next = NULL; // apres 6 = NULL
 	ft_lstadd_front(stack_a, last);
 	if (print)
-		ft_putstr_fd("rra\n", 2);
+		ft_putstr_fd("rra\n", 1);
 }

@@ -6,7 +6,7 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 12:48:26 by msebbane          #+#    #+#             */
-/*   Updated: 2022/03/16 15:24:51 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/03/17 17:14:16 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ int	check_argv(t_stack **stack_a, char **argv)
 			ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(stock_a[y]))); // arguments stock dans la stack a
 			if (!(ft_isdigit(stock_a[y])) || !(ft_isdigit(argv[i])))
 				return (1);
-			if (ft_atoi(argv[i]) == 0 || ft_atoi(stock_a[y]) == 0)
+			if ((ft_atoi(argv[i]) == 0 && argv[i][0] != '0') ||
+				(ft_atoi(stock_a[y]) == 0 && stock_a[y][0] != '0'))
 				return (1);
 			y++;
 		}
@@ -92,11 +93,21 @@ int	main(int argc, char **argv)
 	stack_b = new_stack();
 	if (check_argv(&stack_a, argv) || check_double(stack_a))
 	{
-		ft_putstr_fd("Error\n", 2);
+		ft_putstr_fd("Error\n", 1);
 		return (1);
 	}
 	if (len_stack(&stack_a) == 1 || check_sort(&stack_a) == 1)
-		return (0);
-	is_sorted_2(&stack_a);
+		return (1);
+	if (len_stack(&stack_a) == 2)
+		sa(&stack_a, 2);
+	else if (len_stack(&stack_a) == 3)
+		sorted_for_3(&stack_a);
+	else if (len_stack(&stack_a) <= 5)
+		sort_small_stack(&stack_a, &stack_b);
+	return (0);
+	//index_stack(&stack_a);
+	//else if (len_stack(&stack_a) > 5)
+		//sort_big_stack(&stack_a);
+	
 	//ft_lstadd_back(&stack_b, ft_lstnew(7)); // arguments stock dans la stack b
 }
