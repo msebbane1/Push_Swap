@@ -6,7 +6,7 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 15:50:14 by msebbane          #+#    #+#             */
-/*   Updated: 2022/03/17 16:56:33 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/03/29 12:57:17 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	sorted_for_3(t_stack **stack_a)
 	}
 	print_stack(*stack_a);
 }*/
-
+/*
 int	get_index_min(t_stack **stack)
 {
 	int		i;
@@ -105,7 +105,7 @@ int	get_index_min(t_stack **stack)
 	}
 	return (save);
 }
-
+*/
 void	sort_small_stack(t_stack **stack_a, t_stack **stack_b)
 {
 	int	index;
