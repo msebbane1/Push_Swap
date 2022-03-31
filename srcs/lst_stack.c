@@ -6,7 +6,7 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 12:11:24 by msebbane          #+#    #+#             */
-/*   Updated: 2022/03/31 12:12:00 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/03/31 15:55:13 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,13 @@ t_stack	*clear_stack(t_stack *list)
 	element = list->next;
 	free(list);
 	return (clear_stack(element));
+}
+
+void	clear_stack_all(t_stack *stack_a, t_stack *stack_b)
+{
+	clear_stack(stack_a);
+	clear_stack(stack_b);
+	return ;
 }
 
 /* Boolean savoir si ma stack est NULL */

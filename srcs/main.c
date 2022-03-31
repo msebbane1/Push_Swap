@@ -6,7 +6,7 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 12:48:26 by msebbane          #+#    #+#             */
-/*   Updated: 2022/03/31 15:29:03 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/03/31 15:56:16 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	main(int argc, char **argv)
 	stack_b = new_stack();
 	if (check_argv(&stack_a, argv) || check_double(stack_a))
 	{
+		clear_stack_all(stack_a, stack_b);
 		ft_putstr_fd("Error\n", 1);
 		return (1);
 	}
@@ -35,6 +36,7 @@ int	main(int argc, char **argv)
 		sort_small_stack(&stack_a, &stack_b);
 	else
 		set_chunk_for_big_stack(&stack_a, &stack_b);
+	clear_stack_all(stack_a, stack_b);
 	return (0);
 }
 /* Test = ft_lstadd_back(&stack_b, ft_lstnew(7)) -
