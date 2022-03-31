@@ -6,7 +6,7 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 12:48:26 by msebbane          #+#    #+#             */
-/*   Updated: 2022/03/29 15:07:48 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/03/30 14:57:28 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	big_stack_chunk(t_stack **stack_a, t_stack **stack_b)
 	if (len_stack(stack_a) > 5 && len_stack(stack_a) <= 100)
 		nb_chunk = 5;
 	else if (len_stack(stack_a) >= 100 && len_stack(stack_a) <= 500)
-		nb_chunk = 11;
+		nb_chunk = 12;
 	else
 		nb_chunk = len_stack(stack_a) / 15;
 	limit_save = len_stack(stack_a) / nb_chunk; // ex : 10 nb aleatoires / 5 = 2

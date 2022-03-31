@@ -6,7 +6,7 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 12:01:17 by msebbane          #+#    #+#             */
-/*   Updated: 2022/03/29 16:31:31 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/03/30 15:00:59 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	get_index_up(t_stack **stack_a, int limit)
 	}
 	return (i);
 }
+/* Recupere */
 int	get_index_down(t_stack **stack_a, int limit)
 {
 	int		i;
@@ -61,7 +62,7 @@ int	get_index_down(t_stack **stack_a, int limit)
 	}
 	return (down);
 }
-/* Chercher le minimun dans la stack_a */
+/* Recupere le minimun dans la stack_a */
 int	get_index_min(t_stack **stack_a)
 {
 	int		i;
@@ -85,6 +86,65 @@ int	get_index_min(t_stack **stack_a)
 	}
 	return (min);
 }
+int	get_index_max(t_stack **stack_b)
+{
+	int		i;
+	int		max;
+	int		val;
+	t_stack	*tmp;
+
+	tmp = *stack_b;
+	val = tmp->valeur;
+	i = 0;
+	max = i;
+	while (tmp)
+	{
+		if (tmp->valeur > val)
+		{
+			val = tmp->valeur;
+			max = i; // recuperer le i la position
+		}
+		tmp = tmp->next;
+		i++;
+	}
+	//printf("max = %d\n", max);
+	return (max);
+}
+
+int	get_valeur_max(t_stack **stack_b)
+{
+	int		val;
+	t_stack	*tmp;
+
+	tmp = *stack_b;
+	val = tmp->valeur;
+	while (tmp)
+	{
+		if (tmp->valeur > val)
+			val = tmp->valeur;
+		tmp = tmp->next;
+	}
+	//max = tmp->valeur;
+	//printf("max = %d\n", max);
+	return (val);
+}
+/*recupere líndex max de len, si il est inferieur a la len / 2 rotate sinon reverse
+pa*/
+
+void	chunk_stack_b(t_stack **stack_a, t_stack **stack_b)
+{
+	while (len_stack(stack_b) != 0)
+	{
+		while ((*stack_b)->valeur != get_valeur_max(stack_b))
+		{
+			if (get_index_max(stack_b) < len_stack(stack_b) / 2)
+				rb(stack_b, 1);
+			else
+				rrb(stack_b, 1);
+		}
+		pa(stack_a, stack_b, 1);
+	}
+}
 
 void	hold_chunk(t_stack **stack_a, t_stack **stack_b, int limit_save, int nb_chunk)
 {
@@ -106,11 +166,10 @@ void	hold_chunk(t_stack **stack_a, t_stack **stack_b, int limit_save, int nb_chu
 			search_median(stack_a, index_up);
 		else
 			search_median(stack_a, index_up);
-		pb(stack_a, stack_b, 2);
-		//print_stack(*stack_a);
-		//printf("up = %d, down = %d\n", chunk_up, chunk_down);
+		pb(stack_a, stack_b, 1);
 		chunk_size++;
 	}
+	//print_stack(*stack_a);
 	//printf("chunk_size = %d\n", chunk_size);
 }
 
@@ -150,12 +209,59 @@ void	sort_big_stack_100(t_stack **stack_a, t_stack **stack_b, int limit_save)
 	while (len_stack(stack_a) != 0)
 	{
 		hold_chunk(stack_a, stack_b, limit_save, nb_chunk);
-		printf("nb_chunk = %d\n", nb_chunk);
+		//printf("nb_chunk = %d\n", nb_chunk);
 		nb_chunk++; // 10 nb = 10 nb
 	}
-	while (len_stack(stack_b) != 0)
-		pa(stack_a, stack_b, 2);
+	chunk_stack_b(stack_a, stack_b);
 }
+/*
+void	check_pile_b(t_pile *p)
+{
+	if (p->size_b == 0)
+		ft_use(PB, p);
+	else if (p->size_b == 1)
+	{
+		ft_use(PB, p);
+		if (p->b->content < p->b->next->content)
+			ft_use(SB, p);
+	}
+	else
+	{
+		ft_rotate_inf_b(p, p->a->content);
+		ft_use(PB, p);
+	}
+}
+*/
+/*
+void	ft_rotate_inf_b(t_pile *p, int value)
+{
+	int		inf;
+	int		diff;
+	int		val;
+	t_liste	*lst;
+
+	lst = p->b;
+	val = 0;
+	inf = 0;
+	while (lst)
+	{
+		diff = lst->content - value;
+		if (diff < 0)
+		{
+			if (diff > inf || inf == 0)
+			{
+				inf = diff;
+				val = lst->content;
+			}
+		}
+		lst = lst->next;
+	}
+	if (val == 0)
+		ft_use_rot_b(p, ft_get_index(p->b, max(p->b)));
+	else
+		ft_use_rot_b(p, ft_get_index(p->b, val));
+}
+*/
 /*
 void    sort_big_stack_100(t_stack **stack_a, t_stack **stack_b)
 {
