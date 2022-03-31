@@ -6,12 +6,12 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 12:17:20 by msebbane          #+#    #+#             */
-/*   Updated: 2022/03/31 15:13:48 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/03/31 15:21:06 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-/*PARSING*/
+/* PARSING */
 /*
 - [Arguments] que des chiffres/nb ou chiffres/nb negatifs √
 - [Arguments] fonctionne avec "" √
@@ -25,7 +25,7 @@ int	check_double(t_stack *stack_a)
 {
 	t_stack	*tmp;
 
-	while (stack_a) // Parcours ma stack a jusqu'au dernier element [1245] [245] [45] [5]
+	while (stack_a) //Parcours ma stack a jusqu'au dernier element [1245] [245] [45] [5]
 	{
 		tmp = stack_a->next; // [245] [45] [5] [NULL]
 		while (tmp)
@@ -40,14 +40,14 @@ int	check_double(t_stack *stack_a)
 	return (0);
 }
 
-void	free_split(char **cpy_argv)
+void	free_split(char **copy_stock_a)
 {
 	char	**tmp;
 
-	tmp = cpy_argv;
+	tmp = copy_stock_a;
 	while (*tmp)
 		free(*tmp++);
-	free(cpy_argv);
+	free(copy_stock_a);
 }
 
 int	check_argv(t_stack **stack_a, char **argv)
@@ -72,8 +72,8 @@ int	check_argv(t_stack **stack_a, char **argv)
 			y++;
 		}
 		i++;
-		free_split(stock_a);
 		y = 0;
+		free_split(stock_a);
 	}
 	return (0);
 }
@@ -122,53 +122,3 @@ void    all_chuncks(t_stack **stack_a, int nb_chunck)
     else if (len_stack(stack_a) >= 80 && len_stack(stack_a) <= 99)
         nb_chunck = 5;
 }*/
-/*
-int	check_int(t_stack *stack_a)
-{
-	t_stack	*tmp;
-
-	tmp = stack_a;
-	while (tmp)
-	{
-		if (tmp->valeur < -2147483648 || tmp->valeur > 2147483647)
-			return (1);
-		tmp = tmp->next;
-	}
-	return (0);
-}
-
-int	ft_check_order(t_stack *stack_a)
-{
-	t_stack	*tmp;
-	int		i;
-
-	i = 0;
-	tmp = stack_a;
-	while (tmp)
-	{
-		if (tmp->next && tmp->valeur > tmp->next->valeur)
-			i = 1;
-		tmp = tmp->next;
-	}
-	return (i);
-}
-
-void	free_split(char **cpy_argv)
-{
-	char	**tmp;
-
-	tmp = cpy_argv;
-	while (*tmp)
-		free(*tmp++);
-	free(cpy_argv);
-}
-	if (ft_chklist(argc, argv) == 0)
-		return (0);
-	if (ft_mklist(&stack_a, argc, argv) == 0)
-		return (0);
-	if (ft_verifclean(stack_a) == 0)
-		return (0);
-	if (ft_check_order(stack_a) == 0)
-		return (0);
-	ft_init_struct(&stack_a, &stoc
-*/

@@ -6,7 +6,7 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 12:01:17 by msebbane          #+#    #+#             */
-/*   Updated: 2022/03/31 11:44:30 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/03/31 15:21:50 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,30 +21,6 @@ Etape 2 : Faire une fonction qui parcours ma stack a len / 2 pour la median en h
 J'appellerai ce numéro hold_second.
 Étape 3 : Comparez le nombre de mouvements qu'il faudrait pour obtenir hold_first et hold_second au sommet.
 */
-int	get_index_max(t_stack **stack_b)
-{
-	int		i;
-	int		max;
-	int		val;
-	t_stack	*tmp;
-
-	tmp = *stack_b;
-	val = tmp->valeur;
-	i = 0;
-	max = i;
-	while (tmp)
-	{
-		if (tmp->valeur > val)
-		{
-			val = tmp->valeur;
-			max = i; // recuperer le i la position
-		}
-		tmp = tmp->next;
-		i++;
-	}
-	//printf("max = %d\n", max);
-	return (max);
-}
 
 int	get_valeur_max(t_stack **stack_b)
 {

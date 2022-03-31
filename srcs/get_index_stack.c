@@ -6,7 +6,7 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 11:43:24 by msebbane          #+#    #+#             */
-/*   Updated: 2022/03/31 12:14:42 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/03/31 15:21:56 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,29 @@ int	get_index_min(t_stack **stack_a)
 		i++;
 	}
 	return (min);
+}
+
+int	get_index_max(t_stack **stack_b)
+{
+	int		i;
+	int		max;
+	int		val;
+	t_stack	*tmp;
+
+	tmp = *stack_b;
+	val = tmp->valeur;
+	i = 0;
+	max = i;
+	while (tmp)
+	{
+		if (tmp->valeur > val)
+		{
+			val = tmp->valeur;
+			max = i; // recuperer le i la position
+		}
+		tmp = tmp->next;
+		i++;
+	}
+	//printf("max = %d\n", max);
+	return (max);
 }

@@ -6,7 +6,7 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 10:50:58 by msebbane          #+#    #+#             */
-/*   Updated: 2022/03/31 14:43:09 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/03/31 15:22:23 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,6 @@ void	big_stack_chunk(t_stack **stack_a, t_stack **stack_b);
 void	set_chunk_for_big_stack(t_stack **stack_a, t_stack **stack_b);
 int		ft_check_order(t_stack *stack_a);
 int		check_int(t_stack *stack_a);
+int		get_index_max(t_stack **stack_b);
 
 #endif

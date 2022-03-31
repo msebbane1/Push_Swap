@@ -6,7 +6,7 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 12:48:26 by msebbane          #+#    #+#             */
-/*   Updated: 2022/03/31 15:16:18 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/03/31 15:29:03 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,5 @@ int	main(int argc, char **argv)
 		set_chunk_for_big_stack(&stack_a, &stack_b);
 	return (0);
 }
-
-/* Test = ft_lstadd_back(&stack_b, ft_lstnew(7)); // arguments stock dans la stack b */
+/* Test = ft_lstadd_back(&stack_b, ft_lstnew(7)) -
+arguments stock dans la stack b */
