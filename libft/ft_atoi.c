@@ -6,11 +6,12 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 14:14:02 by marvin            #+#    #+#             */
-/*   Updated: 2022/03/09 11:58:52 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/03/31 15:04:54 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
 /** 
  * La fonction atoi convertit le début de la chaîne pointée par nptr en 
  * entier de type int.

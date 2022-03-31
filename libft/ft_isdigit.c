@@ -6,7 +6,7 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 16:03:47 by marvin            #+#    #+#             */
-/*   Updated: 2022/03/09 11:15:46 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/03/31 15:00:47 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ int	ft_isdigit(char *str)
 	i = 0;
 	while (str[i] == '-')
 		i++;
-	while ((str[i] >= '0' && str[i] <= '9'))
-	{
+	while ((str[i] >= '0' && str[i] <= '9') || str[i] == ' ')
 		i++;
-		return (1);
-	}
-	return (0);
+	if (str[i] != '\0')
+		return (0);
+	return (1);
 }

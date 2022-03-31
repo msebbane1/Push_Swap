@@ -6,12 +6,11 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 17:06:58 by msebbane          #+#    #+#             */
-/*   Updated: 2022/03/08 10:13:28 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/03/31 12:13:53 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
 
 /** 
  * Alloue avec malloc et renvoie un nouvel élément. la variable valeur 

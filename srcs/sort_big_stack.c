@@ -6,7 +6,7 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 12:01:17 by msebbane          #+#    #+#             */
-/*   Updated: 2022/03/30 15:00:59 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/03/31 11:44:30 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,71 +21,6 @@ Etape 2 : Faire une fonction qui parcours ma stack a len / 2 pour la median en h
 J'appellerai ce numéro hold_second.
 Étape 3 : Comparez le nombre de mouvements qu'il faudrait pour obtenir hold_first et hold_second au sommet.
 */
-int	get_index_up(t_stack **stack_a, int limit)
-{
-	int		i;
-	t_stack	*tmp;
-
-	i = 0;
-	tmp = *stack_a;
-	while (tmp)
-	{
-		if (tmp->valeur <= limit)
-		{
-			//printf("i = %d\n", i);
-			return (i);
-		}
-		i++;
-		tmp = tmp->next;
-	}
-	return (i);
-}
-/* Recupere */
-int	get_index_down(t_stack **stack_a, int limit)
-{
-	int		i;
-	int		down;
-	t_stack	*tmp;
-
-	i = 0;
-	down = 0;
-	tmp = *stack_a;
-	while (tmp)
-	{
-		if (tmp->valeur <= limit)
-		{
-			//printf("i = %d\n", i);
-			down = i;
-		}
-		i++;
-		tmp = tmp->next;
-	}
-	return (down);
-}
-/* Recupere le minimun dans la stack_a */
-int	get_index_min(t_stack **stack_a)
-{
-	int		i;
-	int		min;
-	int		val;
-	t_stack	*tmp;
-
-	tmp = *stack_a;
-	val = tmp->valeur;
-	i = 0;
-	min = i;
-	while (tmp)
-	{
-		if (tmp->valeur < val)
-		{
-			val = tmp->valeur;
-			min = i; // recuperer le i la position
-		}
-		tmp = tmp->next;
-		i++;
-	}
-	return (min);
-}
 int	get_index_max(t_stack **stack_b)
 {
 	int		i;
@@ -214,54 +149,7 @@ void	sort_big_stack_100(t_stack **stack_a, t_stack **stack_b, int limit_save)
 	}
 	chunk_stack_b(stack_a, stack_b);
 }
-/*
-void	check_pile_b(t_pile *p)
-{
-	if (p->size_b == 0)
-		ft_use(PB, p);
-	else if (p->size_b == 1)
-	{
-		ft_use(PB, p);
-		if (p->b->content < p->b->next->content)
-			ft_use(SB, p);
-	}
-	else
-	{
-		ft_rotate_inf_b(p, p->a->content);
-		ft_use(PB, p);
-	}
-}
-*/
-/*
-void	ft_rotate_inf_b(t_pile *p, int value)
-{
-	int		inf;
-	int		diff;
-	int		val;
-	t_liste	*lst;
 
-	lst = p->b;
-	val = 0;
-	inf = 0;
-	while (lst)
-	{
-		diff = lst->content - value;
-		if (diff < 0)
-		{
-			if (diff > inf || inf == 0)
-			{
-				inf = diff;
-				val = lst->content;
-			}
-		}
-		lst = lst->next;
-	}
-	if (val == 0)
-		ft_use_rot_b(p, ft_get_index(p->b, max(p->b)));
-	else
-		ft_use_rot_b(p, ft_get_index(p->b, val));
-}
-*/
 /*
 void    sort_big_stack_100(t_stack **stack_a, t_stack **stack_b)
 {
