@@ -6,7 +6,7 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 12:17:20 by msebbane          #+#    #+#             */
-/*   Updated: 2022/03/31 15:50:18 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/04/05 14:07:54 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,49 @@
 - Stocker lstnew(argv [1 NULL]) dans ma stack a √
 - [Arguments] Si ils sont deja trie de rien afficher
 */
+void	index_stack(t_stack **stack_a)
+{
+	int		i;
+	t_stack	*tmp;
+	t_stack	*tmp2;
+
+	i = 0;
+	tmp = *stack_a;
+	tmp2 = *stack_a;
+	while (tmp)
+	{
+		tmp->index = 0;
+		tmp = tmp->next;
+	}
+	while (i <= len_stack(stack_a))
+	{
+		tmp = *stack_a;
+		while (tmp)
+		{
+			if (tmp->valeur <= tmp2->valeur && tmp->index == 0)
+				tmp2 = tmp;
+			tmp = tmp->next;
+		}
+		tmp2->index = 1;
+		tmp2->valeur = i;
+		i++;
+	}
+}
+
 int	check_double(t_stack *stack_a)
 {
 	t_stack	*tmp;
 
-	while (stack_a) //Parcours ma stack a jusqu'au dernier element [1245] [245] [45] [5]
+	while (stack_a)
 	{
-		tmp = stack_a->next; // [245] [45] [5] [NULL]
+		tmp = stack_a->next;
 		while (tmp)
 		{
-            //printf("tmp = %d stack_a = %d\n", tmp->valeur, stack_a->valeur);
 			if (tmp->valeur == stack_a->valeur)
 				return (1);
 			tmp = tmp->next;
 		}
-		stack_a = stack_a->next; // stack a = au dernier element [stack a vers le prochain element]
+		stack_a = stack_a->next;
 	}
 	return (0);
 }
@@ -50,6 +78,8 @@ void	free_split(char **copy_stock_a)
 	free(copy_stock_a);
 }
 
+/* Fonction qui gere les " ", qui permet de stocker mes arguments dans 
+la stack a et de transformer mes nb avec atoi */
 int	check_argv(t_stack **stack_a, char **argv)
 {
 	int		i;
@@ -63,7 +93,7 @@ int	check_argv(t_stack **stack_a, char **argv)
 		stock_a = ft_split(argv[i], ' ');
 		while (stock_a[y])
 		{
-			ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(stock_a[y]))); // arguments stock dans la stack a
+			ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(stock_a[y])));
 			if (!(ft_isdigit(stock_a[y])))
 				return (1);
 			if ((ft_atoi(argv[i]) == 0 && argv[i][0] != '0') ||
@@ -78,6 +108,7 @@ int	check_argv(t_stack **stack_a, char **argv)
 	return (0);
 }
 
+/* Fonction qui verifie si ma liste est deja trier */
 int	check_sort(t_stack **stack_a)
 {
 	t_stack	*tmp;
@@ -92,33 +123,3 @@ int	check_sort(t_stack **stack_a)
 	}
 	return (1);
 }
-
-void	set_chunk_for_big_stack(t_stack **stack_a, t_stack **stack_b)
-{
-	int	limit_save;
-	int	nb_chunk;
-
-	if (len_stack(stack_a) > 5 && len_stack(stack_a) <= 100)
-		nb_chunk = 5;
-	else if (len_stack(stack_a) >= 100 && len_stack(stack_a) <= 500)
-		nb_chunk = 12;
-	else
-		nb_chunk = len_stack(stack_a) / 15;
-	limit_save = len_stack(stack_a) / nb_chunk; // ex : 10 nb aleatoires / 5 = 2
-	sort_big_stack_100(stack_a, stack_b, limit_save);
-}
-
-/*
-void    all_chuncks(t_stack **stack_a, int nb_chunck)
-{
-    if (len_stack(stack_a) <= 19)
-        nb_chunck = 1;
-    else if (len_stack(stack_a) >= 20 && len_stack(stack_a) <= 39)
-        nb_chunck = 2;
-    else if (len_stack(stack_a) >= 40 && len_stack(stack_a) <= 59)
-        nb_chunck = 3;
-    else if (len_stack(stack_a) >= 60 && len_stack(stack_a) <= 79)
-        nb_chunck = 4;
-    else if (len_stack(stack_a) >= 80 && len_stack(stack_a) <= 99)
-        nb_chunck = 5;
-}*/

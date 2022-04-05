@@ -6,7 +6,7 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 12:48:26 by msebbane          #+#    #+#             */
-/*   Updated: 2022/03/31 15:56:16 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/04/05 15:11:23 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	main(int argc, char **argv)
 	}
 	if (len_stack(&stack_a) == 1 || check_sort(&stack_a) == 1)
 		return (1);
+	index_stack(&stack_a);
 	if (len_stack(&stack_a) == 2)
 		sa(&stack_a, 2);
 	else if (len_stack(&stack_a) == 3)
@@ -39,5 +40,3 @@ int	main(int argc, char **argv)
 	clear_stack_all(stack_a, stack_b);
 	return (0);
 }
-/* Test = ft_lstadd_back(&stack_b, ft_lstnew(7)) -
-arguments stock dans la stack b */

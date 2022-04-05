@@ -6,7 +6,7 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 12:11:24 by msebbane          #+#    #+#             */
-/*   Updated: 2022/03/31 15:55:13 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/04/05 15:10:51 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	is_empty_stack(t_stack *list)
 }
 
 /* Afficher ma stack */
+/*
 void	print_stack(t_stack *list)
 {
 	if (is_empty_stack(list))
@@ -58,4 +59,4 @@ void	print_stack(t_stack *list)
 		printf("%d\n", list->valeur);
 		list = list->next;
 	}
-}
+}*/

@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_b.c                                           :+:      :+:    :+:   */
+/*   moves_b.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 13:48:37 by msebbane          #+#    #+#             */
-/*   Updated: 2022/03/17 17:02:21 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/04/05 11:27:51 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 /* sb (swap b) : échange les 2 premiers éléments en haut de la pile b.
-Ne rien faire s'il n'y a qu'un ou aucun élément.*/
+Ne rien faire s'il n'y a qu'un ou aucun élément. */
 void	sb(t_stack **stack_b, int print)
 {
 	t_stack	*tmp;
@@ -29,7 +29,7 @@ void	sb(t_stack **stack_b, int print)
 }
 
 /* pb (appuyez sur b) : Prenez le premier élément en haut de a et 
-placez-le en haut de b. Ne rien faire si a est vide.*/
+placez-le en haut de b. Ne rien faire si a est vide. */
 void	pb(t_stack **stack_a, t_stack **stack_b, int print)
 {
 	t_stack	*tmp;
@@ -45,7 +45,7 @@ void	pb(t_stack **stack_a, t_stack **stack_b, int print)
 }
 
 /* rb (rotation b) : décale vers le haut tous les éléments de la pile b de 1.
-Le premier élément devient le dernier.*/
+Le premier élément devient le dernier. */
 void	rb(t_stack **stack_b, int print)
 {
 	t_stack	*tmp;
@@ -61,7 +61,7 @@ void	rb(t_stack **stack_b, int print)
 }
 
 /* rrb (rotation inverse b) : décale tous les éléments de la pile b de 1.
-Le dernier élément devient le premier.*/
+Le dernier élément devient le premier. */
 void	rrb(t_stack **stack_b, int print)
 {
 	t_stack	*tmp;
@@ -71,9 +71,9 @@ void	rrb(t_stack **stack_b, int print)
 		return ;
 	tmp = *stack_b;
 	while (tmp->next->next != NULL)
-		tmp = tmp->next; // avant dernier element;
-	last = ft_lstlast(*stack_b); // stock 6 dernier element
-	tmp->next = NULL; // apres 6 = NULL
+		tmp = tmp->next;
+	last = ft_lstlast(*stack_b);
+	tmp->next = NULL;
 	ft_lstadd_front(stack_b, last);
 	if (print)
 		ft_putstr_fd("rrb\n", 1);

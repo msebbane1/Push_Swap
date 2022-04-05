@@ -6,7 +6,7 @@
 /*   By: msebbane <msebbane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 10:50:58 by msebbane          #+#    #+#             */
-/*   Updated: 2022/03/31 15:55:34 by msebbane         ###   ########.fr       */
+/*   Updated: 2022/04/05 14:40:30 by msebbane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 typedef struct s_stack
 {
 	int				valeur;
+	int				index;
 	struct s_stack	*next;
 }				t_stack;
 
@@ -54,7 +55,7 @@ void	sort_big_stack(t_stack **stack_a);
 int		get_index_min(t_stack **stack);
 void	sort_big_stack_100(t_stack **stack_a, t_stack **stack_b, int limit);
 void	chunk(t_stack **stack_a, int limit);
-void	search_median(t_stack **stack_a, int index_min);
+void	set_moves(t_stack **stack_a, int index_min);
 int		get_index_min(t_stack **stack_a);
 int		get_index_down(t_stack **stack_a, int limit);
 int		get_index_up(t_stack **stack_a, int limit);
@@ -74,5 +75,7 @@ int		ft_check_order(t_stack *stack_a);
 int		check_int(t_stack *stack_a);
 int		get_index_max(t_stack **stack_b);
 void	clear_stack_all(t_stack *stack_a, t_stack *stack_b);
+int		get_valeur_max(t_stack **stack_b);
+void	index_stack(t_stack **stack_a);
 
 #endif
